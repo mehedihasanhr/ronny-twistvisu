@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 276.21 90.63% 37.65%; /* #7209b7  */
+  --primary-foreground: 0 0% 100%; /* #ffffff  */
+
+  --secondary: 283.78 100% 92.75%; /* #F5DAFF */
+  --secondary-foreground: 276.41 90.7% 25.29%; /* #4D067B */
+
+  --accent: 23.33 72% 90.2%; /* #F8E2D4 */
+  --accent-foreground: 276.41 90.7% 25.29%; /* #4D067B */
+
+  --dark: 249.47 100% 3.73%; /* #030013 */
+  --dark-foreground: 0 0% 100%; /* #ffffff  */
+
+  --muted: 249.47 13.67% 27.25%; /* #3F3C4F */
+  --dolphin-gray: 249.47 8.68% 42.94%; /* #676477 */
+  --snow-white: 255 50% 98.43%; /* #FAF9FD */
+  --mist-gray: 240 20% 90.2%; /* #E1E1EB */
+  --divider: 240 20% 90.2%; /* #E1E1EB */
+  --border: 250 30% 96.08%; /* #F3F2F8 */
+  --light: 0 0% 100%; /* #ffffff  */
+}
+
+@layer base {
+  html {
+    @apply w-screen overflow-x-hidden;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply text-dark bg-light w-screen min-h-screen;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .hero-background {
+    position: relative;
+    background: linear-gradient(
+        289deg,
+        rgba(3, 0, 19, 0) 0%,
+        #030013 40%,
+        #030013 60%,
+        rgba(3, 0, 19, 0) 100%
+      ),
+      lightgray; /* Base color */
+    background-size: 100px 100px;
+  }
+
+  .hero-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/noise.png);
+    background-size: 100px 100px;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  .noise {
+    position: relative;
+  }
+
+  .noise::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/noise.png);
+    background-size: 100px 100px;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+}
