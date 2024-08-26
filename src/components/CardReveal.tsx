@@ -10,9 +10,16 @@ gsap.registerPlugin(useGSAP);
 export const CardReveal = ({
   children,
   className,
+  control = "scroll",
+  animationOptions = {
+    delay: 0.5,
+  },
 }: {
   children: ReactNode;
   className?: string;
+  control?: "scroll" | "auto";
+
+  animationOptions?: Record<string, any>;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -22,17 +29,32 @@ export const CardReveal = ({
 
       const container = ref.current;
 
-      gsap.fromTo(
-        ref.current,
-        { y: 200, opacity: 0, scale: 0.7 },
-        {
-          y: 0,
-          opacity: 1,
-          delay: 0.1,
-          scale: 1,
-          scrollTrigger: { trigger: container, start: "top 80%" },
-        }
-      );
+      if (control === "scroll") {
+        gsap.fromTo(
+          ref.current,
+          { y: 200, opacity: 0, scale: 0.7 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            scrollTrigger: { trigger: container, start: "top 80%" },
+          }
+        );
+      } else {
+        gsap.fromTo(
+          ref.current,
+          { y: 100, opacity: 0, scale: 0.8 },
+          {
+            y: 0,
+            opacity: 1,
+            delay: 1.5,
+            scale: 1,
+            ease: "power4.out",
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+            ...animationOptions,
+          }
+        );
+      }
     },
     { scope: ref }
   );

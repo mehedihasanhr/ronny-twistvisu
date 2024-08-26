@@ -20,6 +20,7 @@ import Image from "next/image";
 import { CardReveal } from "../components/CardReveal";
 import { Footer } from "../components/layouts/Footer";
 import { StickyNav } from "../components/layouts/StickyNav";
+import { HeroVideoContainer } from "../components/HeroVideoContainer";
 
 export default function Home() {
   return (
@@ -29,10 +30,9 @@ export default function Home() {
       {/* image container */}
       <section className="pt-[340px] relative">
         {/* video placeholder */}
-        <div className="flex absolute -top-0 -translate-y-1/2 left-1/2 -translate-x-1/2  items-center justify-center w-full bg-accent max-w-[1200px]  aspect-video rounded-[40px]">
-          <h1 className="text-accent-foreground/20 text-[60px] font-bold leading-[64px] w-[373px] text-center">
-            Portfolio Motion Video
-          </h1>
+
+        <div className="flex absolute -top-0 -translate-y-1/2 left-1/2 -translate-x-1/2  items-center justify-center w-full mx-w-[1200px] aspect-video rounded-[40px]">
+          <HeroVideoContainer options={{ delay: 2.6 }} />
         </div>
 
         {/* service cards */}

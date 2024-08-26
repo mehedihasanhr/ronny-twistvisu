@@ -7,14 +7,39 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-export const Plate = ({ className }: { className?: string }) => {
+export const Plate = ({
+  className,
+  options = {},
+}: {
+  className?: string;
+  options?: Record<string, any>;
+}) => {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useGSAP(
     () => {
-      gsap.to(".plate2", { x: 0, delay: 0.2 });
-      gsap.to(".plate3", { x: 0, delay: 0.2 });
-      gsap.to(".plate4", { x: 0, delay: 0.2 });
+      if (!svgRef?.current) return;
+
+      gsap.fromTo(
+        ".plate1",
+        { x: -100, opacity: 0 },
+        { opacity: 1, x: -8, delay: 1, ...options }
+      );
+      gsap.fromTo(
+        ".plate2",
+        { x: -100, opacity: 0 },
+        { opacity: 1, x: 0, delay: 1, ...options }
+      );
+      gsap.fromTo(
+        ".plate3",
+        { x: -100, opacity: 0 },
+        { opacity: 1, x: 0, delay: 1, ...options }
+      );
+      gsap.fromTo(
+        ".plate4",
+        { x: -100, opacity: 0 },
+        { opacity: 1, x: 0, delay: 1, ...options }
+      );
     },
     {
       scope: svgRef,

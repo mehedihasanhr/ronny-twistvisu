@@ -2,6 +2,7 @@ import { TextReveal } from "@/components/TextReveal";
 import { Navbar } from "@/components/layouts/Navbar";
 import { Plate } from "@/components/layouts/Plate";
 import { Button } from "../ui/Button";
+import { CardReveal } from "../CardReveal";
 
 export const Hero = () => {
   return (
@@ -21,23 +22,42 @@ export const Hero = () => {
               </TextReveal>
             </h1>
             <div className="flex items-center flex-col mb-4">
-              <div className="flex flex-row gap-8 w-[716px]">
+              <div className="flex flex-row gap-8 w-[716px] overflow-hidden">
                 <div className="w-[244px]">
-                  <Plate />
+                  <Plate options={{ delay: 1.8 }} />
                 </div>
-                <p className="text-left text-2xl leading-7 text-light/80 font-normal">
+                <TextReveal
+                  tag="p"
+                  options={{
+                    delay: 2,
+                  }}
+                  className="text-left text-2xl leading-7 text-light/80 font-normal"
+                >
                   Unlock the potential of your brand with our cutting-edge
                   digital strategies, tailored solutions, and data-driven
                   results. We build, optimize, and transform your digital
                   ecosystem to achieve sustainable growth.
-                </p>
+                </TextReveal>
               </div>
             </div>
 
             {/* buttons */}
             <div className="flex justify-center items-center gap-2 pt-4">
-              <Button variant="secondary">Book a Meeting</Button>
-              <Button variant="ghost">Contact Us</Button>
+              <CardReveal
+                animationOptions={{ delay: 2.3 }}
+                control="auto"
+                className="w-fit"
+              >
+                <Button variant="secondary">Book a Meeting</Button>
+              </CardReveal>
+
+              <CardReveal
+                animationOptions={{ delay: 2.5 }}
+                control="auto"
+                className="w-fit"
+              >
+                <Button variant="ghost">Contact Us</Button>
+              </CardReveal>
             </div>
           </div>
         </div>
